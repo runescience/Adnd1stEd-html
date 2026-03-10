@@ -110,4 +110,6 @@ function initCombatEquipment() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', initCombatEquipment);
+document.addEventListener('DOMContentLoaded', () => {
+    initCombatEquipment();
+});

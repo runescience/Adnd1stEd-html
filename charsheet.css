@@ -1,6 +1,7 @@
 body {
     margin: 20px;
     font-family: Arial, sans-serif;
+    font-size: 12px;
 }
 
 #div1 {
@@ -39,16 +40,16 @@ body {
 }
 
 #div2 {
-    /* display: flex; */
+    display: flex;
+    gap: 20px;
 }
 
 .west {
-    width: 50%;
+    flex: 1;
 }
 
 .saving-throw {
-    width: 30%;
-    margin-left: 20px;
+    flex: 1;
 }
 
 table {
@@ -65,6 +66,8 @@ td, th {
 .saving-throw td, .saving-throw th {
     width: 20px;
 }
+
+
 
 #save-paral-final, #save-petri-final, #save-rod-final, #save-breath-final, #save-spell-final {
     font-weight: bold;

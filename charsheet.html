@@ -231,60 +231,51 @@
                     <th>Saving Throws</th>
                     <th>Final</th>
                     <th>Mod</th>
-                    <th>Explanation</th>
+                   
                     <th>Base</th>
                 </tr>
                 <tr>
                     <td>Poison/Paral</td>
                     <td id="save-paral-final">-</td>
                     <td><input type="text" class="save-mod" id="save-paral-mod" value="0"></td>
-                    <td><input type="text" class="save-explain" id="save-paral-explain"></td>
                     <td id="save-paral">-</td>
                 </tr>
                 <tr>
                     <td>Petrify/Poly</td>
                     <td id="save-petri-final">-</td>
                     <td><input type="text" class="save-mod" id="save-petri-mod" value="0"></td>
-                    <td><input type="text" class="save-explain" id="save-petri-explain"></td>
                     <td id="save-petri">-</td>
                 </tr>
                 <tr>
                     <td>Rod/Staff/Wand</td>
                     <td id="save-rod-final">-</td>
                     <td><input type="text" class="save-mod" id="save-rod-mod" value="0"></td>
-                    <td><input type="text" class="save-explain" id="save-rod-explain"></td>
                     <td id="save-rod">-</td>
                 </tr>
                 <tr>
                     <td>Breath Weapon</td>
                     <td id="save-breath-final">-</td>
                     <td><input type="text" class="save-mod" id="save-breath-mod" value="0"></td>
-                    <td><input type="text" class="save-explain" id="save-breath-explain"></td>
                     <td id="save-breath">-</td>
                 </tr>
                 <tr>
                     <td>Spell</td>
                     <td id="save-spell-final">-</td>
                     <td><input type="text" class="save-mod" id="save-spell-mod" value="0"></td>
-                    <td><input type="text" class="save-explain" id="save-spell-explain"></td>
-                    <td id="save-spell">-</td>
+                   <td id="save-spell">-</td>
                 </tr>
-            </table>
-        </div>
-        <div class="gold-section">
-            <table>
                 <tr>
-                    <td>Gold:</td>
-                    <td><input type="text" id="gold-amount"></td>
-                    <td><button id="roll-gold">Roll</button></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td colspan="4"><textarea id="throw-explanation" style="width: 100%; height: 60px;"></textarea></td>
                 </tr>
+                
             </table>
         </div>
+    </div>
         <div class="equipment-owned">
             <div>
+                    <label>Gold:<input type="text" id="gold-amount"> <button id="roll-gold">Roll</button> </label>
+                     &nbsp;  &nbsp;
+            
                 <label>Total Cost: <input type="text" id="total-cost" readonly></label>
                 <label>Total Weight: <input type="text" id="total-weight" readonly></label>
             </div>
@@ -395,9 +386,7 @@
         </div>
         <button id="toggle-equipment-sections">Toggle Equipment Sections</button>
         <div id="equipment-container" class="equipment-container"></div>
-    
     </div>
-    <button id="toggle-all-sections">Toggle All Sections</button>
 
     <script src="equipment.js"></script>
     <script src="combat.js"></script>
