@@ -1,0 +1,70 @@
+body {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+#div1 {
+    margin-bottom: 5px;
+}
+
+#div1 input, #div1 select {
+    margin: 2px;
+    padding: 2px;
+}
+
+#age, #height, #weight, #level {
+    width: 50px;
+}
+
+#str, #int, #wis, #dex,#con, #chr,
+#str-racial, #int-racial, #wis-racial, #dex-racial, #con-racial, #chr-racial,
+#str-final, #int-final, #wis-final, #dex-final, #con-final, #chr-final,
+.save-mod {
+    width: 50px;
+}
+
+#str-final, #int-final, #wis-final, #dex-final, #con-final, #chr-final {
+    border: none;
+    font-weight: bold;
+}
+
+#str-racial, #int-racial, #wis-racial, #dex-racial, #con-racial, #chr-racial {
+    border: none;
+}
+
+#str-final, #int-final, #wis-final, #dex-final, #con-final, #chr-final,
+#str-racial, #int-racial, #wis-racial, #dex-racial, #con-racial, #chr-racial {
+    text-align: center;
+}
+
+#div2 {
+    /* display: flex; */
+}
+
+.west {
+    width: 50%;
+}
+
+.saving-throw {
+    width: 30%;
+    margin-left: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 3px;
+    text-align: center;
+}
+
+.saving-throw td, .saving-throw th {
+    width: 20px;
+}
+
+#save-paral-final, #save-petri-final, #save-rod-final, #save-breath-final, #save-spell-final {
+    font-weight: bold;
+}

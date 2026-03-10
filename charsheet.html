@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AD&D Character Sheet</title>
+    <link rel="stylesheet" href="charsheet.css">
+    <script src="charsheet.js" defer></script>
+</head>
+
+<body>
+    <div id="div1">
+        <input type="text" id="charName" placeholder="Character Name">
+        <select id="race">
+            <option value="">Select Race</option>
+            <option value="Human">Human</option>
+            <option value="Dwarf">Dwarf</option>
+            <option value="Elf">Elf</option>
+            <option value="Gnome">Gnome</option>
+            <option value="Half-Elf">Half-Elf</option>
+            <option value="Halfling">Halfling</option>
+            <option value="Half-Orc">Half-Orc</option>
+        </select>
+        <select id="class">
+            <option value="">Select Class</option>
+            <option value="cleric">Cleric</option>
+            <option value="druid">Druid</option>
+            <option value="fighter">Fighter</option>
+            <option value="paladin">Paladin</option>
+            <option value="ranger">Ranger</option>
+            <option value="magic-user">Magic-User</option>
+            <option value="illusionist">Illusionist</option>
+            <option value="thief">Thief</option>
+            <option value="assassin">Assassin</option>
+            <option value="bard">Bard</option>
+        </select>
+        <select id="alignment">
+            <option value="">Select Alignment</option>
+            <option value="lg">Lawful Good</option>
+            <option value="ng">Neutral Good</option>
+            <option value="cg">Chaotic Good</option>
+            <option value="ln">Lawful Neutral</option>
+            <option value="n">True Neutral</option>
+            <option value="cn">Chaotic Neutral</option>
+            <option value="le">Lawful Evil</option>
+            <option value="ne">Neutral Evil</option>
+            <option value="ce">Chaotic Evil</option>
+        </select>
+        <input type="text" id="age" placeholder="Age">
+        <input type="text" id="height" placeholder="Height">
+        <input type="text" id="weight" placeholder="Weight">
+        <input type="text" id="level" placeholder="Level" value="1">
+    </div>
+
+    <div id="div2">
+        <div class="west">
+            <table>
+                <tr>
+                    <th></th>
+                    <th>final stat</th>
+                    <th>racial</th>
+                    <th>base stat</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>STR:</td>
+                    <td><input type="text" id="str-final" value="10" readonly></td>
+                    <td><input type="text" id="str-racial" value="10" readonly></td>
+                    <td><input type="text" id="str" value="10"></td>
+                    <td>Hit<br>Adj.</td>
+                    <td id="str-hit">0</td>
+                    <td>Dmg<br>Adj.</td>
+                    <td id="str-dmg">0</td>
+                    <td>Wt<br>Adj.</td>
+                    <td id="str-wt">0</td>
+                    <td>Open<br>Doors</td>
+                    <td id="str-doors">1-2</td>
+                    <td>Bend<br>Bars</td>
+                    <td id="str-bend">2%</td>
+                </tr>
+                <tr>
+                    <td>INT:</td>
+                    <td><input type="text" id="int-final" value="10" readonly></td>
+                    <td><input type="text" id="int-racial" value="10" readonly></td>
+                    <td><input type="text" id="int" value="10"></td>
+                    <td>Add.<br>Lang.</td>
+                    <td id="int-lang">2</td>
+                    <td>Know<br>Spell</td>
+                    <td id="int-know">45%</td>
+                    <td>Min<br>Spells</td>
+                    <td id="int-min">5</td>
+                    <td>Max<br>Spells</td>
+                    <td id="int-max">7</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>WIS:</td>
+                    <td><input type="text" id="wis-final" value="10" readonly></td>
+                    <td><input type="text" id="wis-racial" value="10" readonly></td>
+                    <td><input type="text" id="wis" value="10"></td>
+                    <td>Mind<br>Save</td>
+                    <td id="wis-save">0</td>
+                    <td>Spell<br>Fail</td>
+                    <td id="wis-fail">15%</td>
+                    <td>Bonus<br>Spells</td>
+                    <td id="wis-bonus">none</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>DEX:</td>
+                    <td><input type="text" id="dex-final" value="10" readonly></td>
+                    <td><input type="text" id="dex-racial" value="10" readonly></td>
+                    <td><input type="text" id="dex" value="10"></td>
+                    <td>Surprise<br>Adj.</td>
+                    <td id="dex-surprise">0</td>
+                    <td>Missile<br>Adj.</td>
+                    <td id="dex-missile">0</td>
+                    <td>Defense<br>Adj.</td>
+                    <td id="dex-defense">0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>CON:</td>
+                    <td><input type="text" id="con-final" value="10" readonly></td>
+                    <td><input type="text" id="con-racial" value="10" readonly></td>
+                    <td><input type="text" id="con" value="10"></td>
+                    <td>H.P.<br>Adj.</td>
+                    <td id="con-hp">0</td>
+                    <td>System<br>Shock</td>
+                    <td id="con-shock">70%</td>
+                    <td>Ressurect<br>Survival</td>
+                    <td id="con-res">75%</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>CHR:</td>
+                    <td><input type="text" id="chr-final" value="10" readonly></td>
+                    <td><input type="text" id="chr-racial" value="10" readonly></td>
+                    <td><input type="text" id="chr" value="10"></td>
+                    <td>Max #<br>Hench</td>
+                    <td id="chr-hench">4</td>
+                    <td>Loyalty<br>Base</td>
+                    <td id="chr-loyal">normal</td>
+                    <td>Reaction<br>Adj.</td>
+                    <td id="chr-react">normal</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <p>When you select a race, your stats will be automatically adjusted.</p>
+            <hr>
+            <table>
+                <tr>
+                    <th>AC</th>
+                    <th>10</th>
+                    <th>9</th>
+                    <th>8</th>
+                    <th>7</th>
+                    <th>6</th>
+                    <th>5</th>
+                    <th>4</th>
+                    <th>3</th>
+                    <th>2</th>
+                    <th>1</th>
+                    <th>0</th>
+                    <th>-1</th>
+                    <th>-2</th>
+                    <th>-3</th>
+                    <th>-4</th>
+                    <th>-5</th>
+                    <th>-6</th>
+                    <th>-7</th>
+                    <th>-8</th>
+                    <th>-9</th>
+                </tr>
+                <tr>
+                    <td>Roll</td>
+                    <td id="thaco-10">-</td>
+                    <td id="thaco-9">-</td>
+                    <td id="thaco-8">-</td>
+                    <td id="thaco-7">-</td>
+                    <td id="thaco-6">-</td>
+                    <td id="thaco-5">-</td>
+                    <td id="thaco-4">-</td>
+                    <td id="thaco-3">-</td>
+                    <td id="thaco-2">-</td>
+                    <td id="thaco-1">-</td>
+                    <td id="thaco-0">-</td>
+                    <td id="thaco--1">-</td>
+                    <td id="thaco--2">-</td>
+                    <td id="thaco--3">-</td>
+                    <td id="thaco--4">-</td>
+                    <td id="thaco--5">-</td>
+                    <td id="thaco--6">-</td>
+                    <td id="thaco--7">-</td>
+                    <td id="thaco--8">-</td>
+                    <td id="thaco--9">-</td>
+                </tr>
+            </table>
+            <hr>
+            <button id="saveBtn">Save Character</button>
+            <button id="loadBtn">Load Character</button>
+            <input type="file" id="loadFile" accept=".json" style="display:none">
+            <hr>
+        </div>
+        <div class="saving-throw">
+            <table>
+                <tr>
+                    <th>Saving Throws</th>
+                    <th>Final</th>
+                    <th>Mod</th>
+                    <th>Explanation</th>
+                    <th>Base</th>
+                </tr>
+                <tr>
+                    <td>Poison/Paral</td>
+                    <td id="save-paral-final">-</td>
+                    <td><input type="text" class="save-mod" id="save-paral-mod" value="0"></td>
+                    <td><input type="text" class="save-explain" id="save-paral-explain"></td>
+                    <td id="save-paral">-</td>
+                </tr>
+                <tr>
+                    <td>Petrify/Poly</td>
+                    <td id="save-petri-final">-</td>
+                    <td><input type="text" class="save-mod" id="save-petri-mod" value="0"></td>
+                    <td><input type="text" class="save-explain" id="save-petri-explain"></td>
+                    <td id="save-petri">-</td>
+                </tr>
+                <tr>
+                    <td>Rod/Staff/Wand</td>
+                    <td id="save-rod-final">-</td>
+                    <td><input type="text" class="save-mod" id="save-rod-mod" value="0"></td>
+                    <td><input type="text" class="save-explain" id="save-rod-explain"></td>
+                    <td id="save-rod">-</td>
+                </tr>
+                <tr>
+                    <td>Breath Weapon</td>
+                    <td id="save-breath-final">-</td>
+                    <td><input type="text" class="save-mod" id="save-breath-mod" value="0"></td>
+                    <td><input type="text" class="save-explain" id="save-breath-explain"></td>
+                    <td id="save-breath">-</td>
+                </tr>
+                <tr>
+                    <td>Spell</td>
+                    <td id="save-spell-final">-</td>
+                    <td><input type="text" class="save-mod" id="save-spell-mod" value="0"></td>
+                    <td><input type="text" class="save-explain" id="save-spell-explain"></td>
+                    <td id="save-spell">-</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
