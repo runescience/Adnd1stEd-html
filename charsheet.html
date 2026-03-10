@@ -131,10 +131,10 @@
                     <td id="dex-missile">0</td>
                     <td>Defense<br>Adj.</td>
                     <td id="dex-defense">0</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>AC:</td>
+                    <td><input type="text" id="ac-val" value=""></td>
+                    <td>AdjAC</td>
+                    <td><input type="text" id="adjac-val" value=""></td>
                 </tr>
                 <tr>
                     <td>CON:</td>
@@ -147,10 +147,10 @@
                     <td id="con-shock">70%</td>
                     <td>Ressurect<br>Survival</td>
                     <td id="con-res">75%</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>HP:</td>
+                    <td><input type="text" id="hp-val" value=""></td>
+                    <td>AdjHP</td>
+                    <td><input type="text" id="adjhp-val" value=""></td>
                 </tr>
                 <tr>
                     <td>CHR:</td>
@@ -271,7 +271,136 @@
                 </tr>
             </table>
         </div>
+        <div class="gold-section">
+            <table>
+                <tr>
+                    <td>Gold:</td>
+                    <td><input type="text" id="gold-amount"></td>
+                    <td><button id="roll-gold">Roll</button></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="equipment-owned">
+            <div>
+                <label>Total Cost: <input type="text" id="total-cost" readonly></label>
+                <label>Total Weight: <input type="text" id="total-weight" readonly></label>
+            </div>
+            <div>
+                <label>Additional Weight: <input type="text" id="additional-weight"></label>
+            </div>
+            <div>
+                <label>Additional Equipment:</label>
+                <textarea id="additional-equipment" rows="3"></textarea>
+            </div>
+            <table class="combat-equipment">
+                <tr>
+                    <th></th>
+                    <th>Weapon</th>
+                    <th>Hit +</th>
+                    <th>Dmg +</th>
+                    <th>Dmg S/M</th>
+                    <th>Dmg L</th>
+                    <th>Wt (gp)</th>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="combat-check"></td>
+                    <td><select class="combat-weapon"><option value="">Select Weapon</option></select></td>
+                    <td><input type="text" class="combat-hit" style="width: 40px;"></td>
+                    <td><input type="text" class="combat-dmg" style="width: 40px;"></td>
+                    <td><input type="text" class="combat-dmg-sm" readonly style="width: 50px;"></td>
+                    <td><input type="text" class="combat-dmg-l" readonly style="width: 50px;"></td>
+                    <td><input type="text" class="combat-wt" readonly style="width: 50px;"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="combat-check"></td>
+                    <td><select class="combat-weapon"><option value="">Select Weapon</option></select></td>
+                    <td><input type="text" class="combat-hit" style="width: 40px;"></td>
+                    <td><input type="text" class="combat-dmg" style="width: 40px;"></td>
+                    <td><input type="text" class="combat-dmg-sm" readonly style="width: 50px;"></td>
+                    <td><input type="text" class="combat-dmg-l" readonly style="width: 50px;"></td>
+                    <td><input type="text" class="combat-wt" readonly style="width: 50px;"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="combat-check"></td>
+                    <td><select class="combat-weapon"><option value="">Select Weapon</option></select></td>
+                    <td><input type="text" class="combat-hit" style="width: 40px;"></td>
+                    <td><input type="text" class="combat-dmg" style="width: 40px;"></td>
+                    <td><input type="text" class="combat-dmg-sm" readonly style="width: 50px;"></td>
+                    <td><input type="text" class="combat-dmg-l" readonly style="width: 50px;"></td>
+                    <td><input type="text" class="combat-wt" readonly style="width: 50px;"></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Ranged/Thrown</th>
+                    <th>Hit +</th>
+                    <th>Dmg +</th>
+                    <th>Dmg S/M</th>
+                    <th>Dmg L</th>
+                    <th>Wt (gp)</th>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="combat-check"></td>
+                    <td><select class="combat-weapon"><option value="">Select Weapon</option></select></td>
+                    <td><input type="text" class="combat-hit" style="width: 40px;"></td>
+                    <td><input type="text" class="combat-dmg" style="width: 40px;"></td>
+                    <td><input type="text" class="combat-dmg-sm" readonly style="width: 50px;"></td>
+                    <td><input type="text" class="combat-dmg-l" readonly style="width: 50px;"></td>
+                    <td><input type="text" class="combat-wt" readonly style="width: 50px;"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="combat-check"></td>
+                    <td><select class="combat-weapon"><option value="">Select Weapon</option></select></td>
+                    <td><input type="text" class="combat-hit" style="width: 40px;"></td>
+                    <td><input type="text" class="combat-dmg" style="width: 40px;"></td>
+                    <td><input type="text" class="combat-dmg-sm" readonly style="width: 50px;"></td>
+                    <td><input type="text" class="combat-dmg-l" readonly style="width: 50px;"></td>
+                    <td><input type="text" class="combat-wt" readonly style="width: 50px;"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="combat-check"></td>
+                    <td><select class="combat-weapon"><option value="">Select Weapon</option></select></td>
+                    <td><input type="text" class="combat-hit" style="width: 40px;"></td>
+                    <td><input type="text" class="combat-dmg" style="width: 40px;"></td>
+                    <td><input type="text" class="combat-dmg-sm" readonly style="width: 50px;"></td>
+                    <td><input type="text" class="combat-dmg-l" readonly style="width: 50px;"></td>
+                    <td><input type="text" class="combat-wt" readonly style="width: 50px;"></td>
+                </tr>
+                <tr>
+                    <th colspan="7"><button id="toggle-combat-checks">Toggle All Checkmarks</button></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Armor</th>
+                    <th colspan="5"></th>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="combat-check"></td>
+                    <td><select class="combat-armor"><option value="">Select Armor</option></select></td>
+                    <td colspan="5"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="combat-check"></td>
+                    <td><select class="combat-armor"><option value="">Select Armor</option></select></td>
+                    <td colspan="5"></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="combat-check"></td>
+                    <td><select class="combat-armor"><option value="">Select Armor</option></select></td>
+                    <td colspan="5"></td>
+                </tr>
+            </table>
+        </div>
+        <button id="toggle-equipment-sections">Toggle Equipment Sections</button>
+        <div id="equipment-container" class="equipment-container"></div>
+    
     </div>
+    <button id="toggle-all-sections">Toggle All Sections</button>
+
+    <script src="equipment.js"></script>
+    <script src="combat.js"></script>
 </body>
 
 </html>

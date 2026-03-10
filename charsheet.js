@@ -975,7 +975,22 @@ function saveCharacter() {
         savePetriExplain: document.getElementById('save-petri-explain').value,
         saveRodExplain: document.getElementById('save-rod-explain').value,
         saveBreathExplain: document.getElementById('save-breath-explain').value,
-        saveSpellExplain: document.getElementById('save-spell-explain').value
+        saveSpellExplain: document.getElementById('save-spell-explain').value,
+        goldAmount: document.getElementById('gold-amount').value,
+        acVal: document.getElementById('ac-val').value,
+        adjacVal: document.getElementById('adjac-val').value,
+        hpVal: document.getElementById('hp-val').value,
+        adjhpVal: document.getElementById('adjhp-val').value,
+        totalCost: document.getElementById('total-cost').value,
+        totalWeight: document.getElementById('total-weight').value,
+        additionalEquipment: document.getElementById('additional-equipment').value,
+        additionalWeight: document.getElementById('additional-weight').value,
+        weaponCheckboxes: Array.from(document.querySelectorAll('.combat-check')).map(cb => cb.checked),
+        weaponSelects: Array.from(document.querySelectorAll('.combat-weapon')).map(sel => sel.value),
+        weaponHits: Array.from(document.querySelectorAll('.combat-hit')).map(inp => inp.value),
+        weaponDmgs: Array.from(document.querySelectorAll('.combat-dmg')).map(inp => inp.value),
+        armorSelects: Array.from(document.querySelectorAll('.combat-armor')).map(sel => sel.value),
+        equipmentCheckboxes: Array.from(document.querySelectorAll('.item-checkbox')).map(cb => cb.checked)
     };
     const json = JSON.stringify(data, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
@@ -1017,6 +1032,45 @@ function loadCharacter(event) {
         document.getElementById('save-rod-explain').value = data.saveRodExplain || '';
         document.getElementById('save-breath-explain').value = data.saveBreathExplain || '';
         document.getElementById('save-spell-explain').value = data.saveSpellExplain || '';
+        document.getElementById('gold-amount').value = data.goldAmount || '';
+        document.getElementById('ac-val').value = data.acVal || '';
+        document.getElementById('adjac-val').value = data.adjacVal || '';
+        document.getElementById('hp-val').value = data.hpVal || '';
+        document.getElementById('adjhp-val').value = data.adjhpVal || '';
+        document.getElementById('total-cost').value = data.totalCost || '';
+        document.getElementById('total-weight').value = data.totalWeight || '';
+        document.getElementById('additional-equipment').value = data.additionalEquipment || '';
+        document.getElementById('additional-weight').value = data.additionalWeight || '';
+        if (data.weaponCheckboxes) {
+            Array.from(document.querySelectorAll('.combat-check')).forEach((cb, i) => {
+                cb.checked = data.weaponCheckboxes[i] || false;
+            });
+        }
+        if (data.weaponSelects) {
+            Array.from(document.querySelectorAll('.combat-weapon')).forEach((sel, i) => {
+                sel.value = data.weaponSelects[i] || '';
+            });
+        }
+        if (data.weaponHits) {
+            Array.from(document.querySelectorAll('.combat-hit')).forEach((inp, i) => {
+                inp.value = data.weaponHits[i] || '';
+            });
+        }
+        if (data.weaponDmgs) {
+            Array.from(document.querySelectorAll('.combat-dmg')).forEach((inp, i) => {
+                inp.value = data.weaponDmgs[i] || '';
+            });
+        }
+        if (data.armorSelects) {
+            Array.from(document.querySelectorAll('.combat-armor')).forEach((sel, i) => {
+                sel.value = data.armorSelects[i] || '';
+            });
+        }
+        if (data.equipmentCheckboxes) {
+            Array.from(document.querySelectorAll('.item-checkbox')).forEach((cb, i) => {
+                cb.checked = data.equipmentCheckboxes[i] || false;
+            });
+        }
         applyRacialAdjustments();
         checkClassRequirements();
         updateSavingThrows();
@@ -1027,6 +1081,51 @@ function loadCharacter(event) {
 document.getElementById('saveBtn').addEventListener('click', saveCharacter);
 document.getElementById('loadBtn').addEventListener('click', () => document.getElementById('loadFile').click());
 document.getElementById('loadFile').addEventListener('change', loadCharacter);
+
+function rollGold() {
+    const selectedClass = document.getElementById('class').value;
+    if (!selectedClass) {
+        alert('Please select a class first');
+        return;
+    }
+    
+    const goldRolls = {
+        'cleric': { dice: 3, sides: 6 },
+        'druid': { dice: 3, sides: 6 },
+        'fighter': { dice: 5, sides: 4 },
+        'paladin': { dice: 5, sides: 4 },
+        'ranger': { dice: 5, sides: 4 },
+        'bard': { dice: 5, sides: 4 },
+        'magic-user': { dice: 2, sides: 4 },
+        'illusionist': { dice: 2, sides: 4 },
+        'thief': { dice: 2, sides: 6 },
+        'assassin': { dice: 2, sides: 6 }
+    };
+    
+    const roll = goldRolls[selectedClass];
+    if (!roll) return;
+    
+    let total = 0;
+    for (let i = 0; i < roll.dice; i++) {
+        total += Math.floor(Math.random() * roll.sides) + 1;
+    }
+    
+    document.getElementById('gold-amount').value = total * 10;
+}
+
+document.getElementById('roll-gold').addEventListener('click', rollGold);
+document.getElementById('class').addEventListener('change', () => {
+    const btn = document.getElementById('roll-gold');
+    btn.disabled = !document.getElementById('class').value;
+});
+
+document.getElementById('roll-gold').disabled = true;
+
+document.getElementById('toggle-combat-checks').addEventListener('click', () => {
+    const checkboxes = document.querySelectorAll('.combat-check');
+    const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+    checkboxes.forEach(cb => cb.checked = !allChecked);
+});
 
 
 // Bard level progression - appended separately due to size

@@ -18,9 +18,10 @@ body {
 
 #str, #int, #wis, #dex,#con, #chr,
 #str-racial, #int-racial, #wis-racial, #dex-racial, #con-racial, #chr-racial,
-#str-final, #int-final, #wis-final, #dex-final, #con-final, #chr-final,
+#str-final, #int-final, #wis-final, #dex-final, #con-final, #ac-val,#adjac-val,
+#chr-final,#hp-val,#adjhp-val,
 .save-mod {
-    width: 50px;
+    width: 40px;
 }
 
 #str-final, #int-final, #wis-final, #dex-final, #con-final, #chr-final {
@@ -67,4 +68,106 @@ td, th {
 
 #save-paral-final, #save-petri-final, #save-rod-final, #save-breath-final, #save-spell-final {
     font-weight: bold;
+}
+
+.equipment-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.equipment-column {
+    flex: 1;
+}
+
+.equipment-section {
+    margin-bottom: 15px;
+}
+
+.equipment-header {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid black;
+}
+
+.equipment-header input {
+    margin-right: 10px;
+}
+
+.equipment-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.equipment-item {
+    display: flex;
+    align-items: center;
+    padding: 3px 5px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.equipment-item input {
+    margin-right: 10px;
+}
+
+.item-name {
+    flex: 1;
+}
+
+.item-qty {
+    width: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 2px;
+}
+
+.item-cost {
+    min-width: 80px;
+    text-align: right;
+}
+
+.equipment-owned {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.equipment-owned > div {
+    margin-bottom: 10px;
+}
+
+.equipment-owned label {
+    margin-right: 20px;
+}
+
+.equipment-owned input[type="text"] {
+    width: 100px;
+    padding: 2px;
+}
+
+.equipment-owned textarea {
+    width: 100%;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+}
+
+.combat-equipment {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.combat-equipment td, .combat-equipment th {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+}
+
+.combat-equipment select {
+    width: 100%;
+    padding: 2px;
 }
