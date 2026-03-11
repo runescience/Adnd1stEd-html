@@ -386,6 +386,176 @@
         </div>
         <button id="toggle-equipment-sections">Toggle Equipment Sections</button>
         <div id="equipment-container" class="equipment-container"></div>
+        
+        <div id="cleric-spells-container" class="spells-container">
+            <h3>Cleric Spells <input type="checkbox" id="hide-unselected-cleric"> Hide Unselected</h3>
+            <table class="spells-table">
+                <tr>
+                    <th>Number</th>
+                    <th>1st Level</th>
+                    <th>2nd Level</th>
+                    <th>3rd Level</th>
+                </tr>
+                <tr><td>1</td><td><input type="checkbox" class="cleric-spell-check"> Bless</td><td><input type="checkbox" class="cleric-spell-check"> Augury</td><td><input type="checkbox" class="cleric-spell-check"> Animate Dead</td></tr>
+                <tr><td>2</td><td><input type="checkbox" class="cleric-spell-check"> Command</td><td><input type="checkbox" class="cleric-spell-check"> Chant</td><td><input type="checkbox" class="cleric-spell-check"> Continual Light</td></tr>
+                <tr><td>3</td><td><input type="checkbox" class="cleric-spell-check"> Create Water</td><td><input type="checkbox" class="cleric-spell-check"> Detect Charm</td><td><input type="checkbox" class="cleric-spell-check"> Create Food &amp; Water</td></tr>
+                <tr><td>4</td><td><input type="checkbox" class="cleric-spell-check"> Cure Light Wounds</td><td><input type="checkbox" class="cleric-spell-check"> Find Traps</td><td><input type="checkbox" class="cleric-spell-check"> Cure Blindness</td></tr>
+                <tr><td>5</td><td><input type="checkbox" class="cleric-spell-check"> Detect Evil</td><td><input type="checkbox" class="cleric-spell-check"> Hold Person</td><td><input type="checkbox" class="cleric-spell-check"> Cure Disease</td></tr>
+                <tr><td>6</td><td><input type="checkbox" class="cleric-spell-check"> Detect Magic</td><td><input type="checkbox" class="cleric-spell-check"> Know Alignment</td><td><input type="checkbox" class="cleric-spell-check"> Dispel Magic</td></tr>
+                <tr><td>7</td><td><input type="checkbox" class="cleric-spell-check"> Light</td><td><input type="checkbox" class="cleric-spell-check"> Resist Fire</td><td><input type="checkbox" class="cleric-spell-check"> Feign Death</td></tr>
+                <tr><td>8</td><td><input type="checkbox" class="cleric-spell-check"> Protection From Evil</td><td><input type="checkbox" class="cleric-spell-check"> Silence 15' Radius</td><td><input type="checkbox" class="cleric-spell-check"> Glyph Of Warding</td></tr>
+                <tr><td>9</td><td><input type="checkbox" class="cleric-spell-check"> Purify Food &amp; Drink</td><td><input type="checkbox" class="cleric-spell-check"> Slow Poison</td><td><input type="checkbox" class="cleric-spell-check"> Locate Object</td></tr>
+                <tr><td>10</td><td><input type="checkbox" class="cleric-spell-check"> Remove Fear</td><td><input type="checkbox" class="cleric-spell-check"> Snake Charm</td><td><input type="checkbox" class="cleric-spell-check"> Prayer</td></tr>
+                <tr><td>11</td><td><input type="checkbox" class="cleric-spell-check"> Resist Cold</td><td><input type="checkbox" class="cleric-spell-check"> Speak With Animals</td><td><input type="checkbox" class="cleric-spell-check"> Remove Curse</td></tr>
+                <tr><td>12</td><td><input type="checkbox" class="cleric-spell-check"> Sanctuary</td><td><input type="checkbox" class="cleric-spell-check"> Spiritual Hammer</td><td><input type="checkbox" class="cleric-spell-check"> Speak With Dead</td></tr>
+            </table>
+            <table class="spells-table">
+                <tr>
+                    <th>Number</th>
+                    <th>4th Level</th>
+                    <th>5th Level</th>
+                    <th>6th Level</th>
+                    <th>7th Level</th>
+                </tr>
+                <tr><td>1</td><td><input type="checkbox" class="cleric-spell-check"> Cure Serious Wounds</td><td><input type="checkbox" class="cleric-spell-check"> Atonement</td><td><input type="checkbox" class="cleric-spell-check"> Aerial Servant</td><td><input type="checkbox" class="cleric-spell-check"> Astral Spell</td></tr>
+                <tr><td>2</td><td><input type="checkbox" class="cleric-spell-check"> Detect Lie</td><td><input type="checkbox" class="cleric-spell-check"> Commune</td><td><input type="checkbox" class="cleric-spell-check"> Animate Object</td><td><input type="checkbox" class="cleric-spell-check"> Control Weather</td></tr>
+                <tr><td>3</td><td><input type="checkbox" class="cleric-spell-check"> Divination</td><td><input type="checkbox" class="cleric-spell-check"> Cure Critical Wounds</td><td><input type="checkbox" class="cleric-spell-check"> Blade Barrier</td><td><input type="checkbox" class="cleric-spell-check"> Earthquake</td></tr>
+                <tr><td>4</td><td><input type="checkbox" class="cleric-spell-check"> Exorcise</td><td><input type="checkbox" class="cleric-spell-check"> Dispel Evil</td><td><input type="checkbox" class="cleric-spell-check"> Conjure Animals</td><td><input type="checkbox" class="cleric-spell-check"> Gate</td></tr>
+                <tr><td>5</td><td><input type="checkbox" class="cleric-spell-check"> Lower Water</td><td><input type="checkbox" class="cleric-spell-check"> Flame Strike</td><td><input type="checkbox" class="cleric-spell-check"> Find The Path</td><td><input type="checkbox" class="cleric-spell-check"> Holy (Unholy) Word</td></tr>
+                <tr><td>6</td><td><input type="checkbox" class="cleric-spell-check"> Neutralize Poison</td><td><input type="checkbox" class="cleric-spell-check"> Insect Plague</td><td><input type="checkbox" class="cleric-spell-check"> Heal</td><td><input type="checkbox" class="cleric-spell-check"> Regenerate</td></tr>
+                <tr><td>7</td><td><input type="checkbox" class="cleric-spell-check"> Protection from Evil 10' Radius</td><td><input type="checkbox" class="cleric-spell-check"> Plane Shift</td><td><input type="checkbox" class="cleric-spell-check"> Part Water</td><td><input type="checkbox" class="cleric-spell-check"> Restoration</td></tr>
+                <tr><td>8</td><td><input type="checkbox" class="cleric-spell-check"> Speak With Plants</td><td><input type="checkbox" class="cleric-spell-check"> Quest</td><td><input type="checkbox" class="cleric-spell-check"> Speak With Monsters</td><td><input type="checkbox" class="cleric-spell-check"> Resurrection</td></tr>
+                <tr><td>9</td><td><input type="checkbox" class="cleric-spell-check"> Sticks To Snakes</td><td><input type="checkbox" class="cleric-spell-check"> Raise Dead</td><td><input type="checkbox" class="cleric-spell-check"> Stone Tell</td><td><input type="checkbox" class="cleric-spell-check"> Symbol</td></tr>
+                <tr><td>10</td><td><input type="checkbox" class="cleric-spell-check"> Tongues</td><td><input type="checkbox" class="cleric-spell-check"> True Seeing</td><td><input type="checkbox" class="cleric-spell-check"> Word Of Recall</td><td><input type="checkbox" class="cleric-spell-check"> Wind Walk</td></tr>
+            </table>
+        </div>
+        
+        <div id="druid-spells-container" class="spells-container">
+            <h3>Druid Spells <input type="checkbox" id="hide-unselected-druid"> Hide Unselected</h3>
+            <table class="spells-table">
+                <tr>
+                    <th>Number</th>
+                    <th>1st Level</th>
+                    <th>2nd Level</th>
+                    <th>3rd Level</th>
+                    <th>4th Level</th>
+                </tr>
+                <tr><td>1</td><td><input type="checkbox" class="druid-spell-check"> Animal Friendship</td><td><input type="checkbox" class="druid-spell-check"> Barkskin</td><td><input type="checkbox" class="druid-spell-check"> Call Lightning</td><td><input type="checkbox" class="druid-spell-check"> Animal Summoning I</td></tr>
+                <tr><td>2</td><td><input type="checkbox" class="druid-spell-check"> Detect Magic</td><td><input type="checkbox" class="druid-spell-check"> Charm Person Or Mammal</td><td><input type="checkbox" class="druid-spell-check"> Cure Disease</td><td><input type="checkbox" class="druid-spell-check"> Call Woodland Beings</td></tr>
+                <tr><td>3</td><td><input type="checkbox" class="druid-spell-check"> Detect Snares &amp; Pits</td><td><input type="checkbox" class="druid-spell-check"> Create Water</td><td><input type="checkbox" class="druid-spell-check"> Hold Animal</td><td><input type="checkbox" class="druid-spell-check"> Control Temperature 10' Radius</td></tr>
+                <tr><td>4</td><td><input type="checkbox" class="druid-spell-check"> Entangle</td><td><input type="checkbox" class="druid-spell-check"> Cure Light Wounds</td><td><input type="checkbox" class="druid-spell-check"> Neutralize Poison</td><td><input type="checkbox" class="druid-spell-check"> Cure Serious Wounds</td></tr>
+                <tr><td>5</td><td><input type="checkbox" class="druid-spell-check"> Faerie Fire</td><td><input type="checkbox" class="druid-spell-check"> Feign Death</td><td><input type="checkbox" class="druid-spell-check"> Plant Growth</td><td><input type="checkbox" class="druid-spell-check"> Dispel Magic</td></tr>
+                <tr><td>6</td><td><input type="checkbox" class="druid-spell-check"> Invisibility To Animals</td><td><input type="checkbox" class="druid-spell-check"> Fire Trap</td><td><input type="checkbox" class="druid-spell-check"> Protection From Fire</td><td><input type="checkbox" class="druid-spell-check"> Hallucinatory Forest</td></tr>
+                <tr><td>7</td><td><input type="checkbox" class="druid-spell-check"> Locate Animals</td><td><input type="checkbox" class="druid-spell-check"> Heat Metal</td><td><input type="checkbox" class="druid-spell-check"> Pyrotechnics</td><td><input type="checkbox" class="druid-spell-check"> Hold Plant</td></tr>
+                <tr><td>8</td><td><input type="checkbox" class="druid-spell-check"> Pass Without Trace</td><td><input type="checkbox" class="druid-spell-check"> Locate Plants</td><td><input type="checkbox" class="druid-spell-check"> Snare</td><td><input type="checkbox" class="druid-spell-check"> Plant Door</td></tr>
+                <tr><td>9</td><td><input type="checkbox" class="druid-spell-check"> Predict Weather</td><td><input type="checkbox" class="druid-spell-check"> Obscurement</td><td><input type="checkbox" class="druid-spell-check"> Stone Shape</td><td><input type="checkbox" class="druid-spell-check"> Produce Fire</td></tr>
+                <tr><td>10</td><td><input type="checkbox" class="druid-spell-check"> Purify Water</td><td><input type="checkbox" class="druid-spell-check"> Produce Flame</td><td><input type="checkbox" class="druid-spell-check"> Summon Insects</td><td><input type="checkbox" class="druid-spell-check"> Protection From Lightning</td></tr>
+                <tr><td>11</td><td><input type="checkbox" class="druid-spell-check"> Shillelagh</td><td><input type="checkbox" class="druid-spell-check"> Trip</td><td><input type="checkbox" class="druid-spell-check"> Tree</td><td></td></tr>
+                <tr><td>12</td><td><input type="checkbox" class="druid-spell-check"> Speak With Animals</td><td><input type="checkbox" class="druid-spell-check"> Warp Wood</td><td><input type="checkbox" class="druid-spell-check"> Water Breathing</td><td><input type="checkbox" class="druid-spell-check"> Speak With Plants</td></tr>
+            </table>
+            <table class="spells-table">
+                <tr>
+                    <th>Number</th>
+                    <th>5th Level</th>
+                    <th>6th Level</th>
+                    <th>7th Level</th>
+                </tr>
+                <tr><td>1</td><td><input type="checkbox" class="druid-spell-check"> Animal Growth</td><td><input type="checkbox" class="druid-spell-check"> Animal Summoning III</td><td><input type="checkbox" class="druid-spell-check"> Animate Rock</td></tr>
+                <tr><td>2</td><td><input type="checkbox" class="druid-spell-check"> Animal Summoning II</td><td><input type="checkbox" class="druid-spell-check"> Anti-Animal Shell</td><td><input type="checkbox" class="druid-spell-check"> Chariot Of Sustarre</td></tr>
+                <tr><td>3</td><td><input type="checkbox" class="druid-spell-check"> Anti-Plant Shell</td><td><input type="checkbox" class="druid-spell-check"> Conjure Fire Elemental</td><td><input type="checkbox" class="druid-spell-check"> Confusion</td></tr>
+                <tr><td>4</td><td><input type="checkbox" class="druid-spell-check"> Commune With Nature</td><td><input type="checkbox" class="druid-spell-check"> Cure Critical Wounds</td><td><input type="checkbox" class="druid-spell-check"> Conjure Earth Elemental</td></tr>
+                <tr><td>5</td><td><input type="checkbox" class="druid-spell-check"> Control Winds</td><td><input type="checkbox" class="druid-spell-check"> Feeblemind</td><td><input type="checkbox" class="druid-spell-check"> Control Weather</td></tr>
+                <tr><td>6</td><td><input type="checkbox" class="druid-spell-check"> Insect Plague</td><td><input type="checkbox" class="druid-spell-check"> Fire Seeds</td><td><input type="checkbox" class="druid-spell-check"> Creeping Doom</td></tr>
+                <tr><td>7</td><td><input type="checkbox" class="druid-spell-check"> Pass Plant</td><td><input type="checkbox" class="druid-spell-check"> Transport Via Plants</td><td><input type="checkbox" class="druid-spell-check"> Finger Of Death</td></tr>
+                <tr><td>8</td><td><input type="checkbox" class="druid-spell-check"> Sticks To Snakes</td><td><input type="checkbox" class="druid-spell-check"> Turn Wood</td><td><input type="checkbox" class="druid-spell-check"> Fire Storm</td></tr>
+                <tr><td>9</td><td><input type="checkbox" class="druid-spell-check"> Transmute Rock To Mud</td><td><input type="checkbox" class="druid-spell-check"> Wall of Thorns</td><td><input type="checkbox" class="druid-spell-check"> Reincarnate</td></tr>
+                <tr><td>10</td><td><input type="checkbox" class="druid-spell-check"> Wall Of Fire</td><td><input type="checkbox" class="druid-spell-check"> Weather Summoning</td><td><input type="checkbox" class="druid-spell-check"> Transmute Metal To Wood</td></tr>
+            </table>
+        </div>
+        
+        <div id="wizard-spells-container" class="spells-container">
+            <h3>Wizard Spells <input type="checkbox" id="hide-unselected-wizard"> Hide Unselected</h3>
+            <table class="spells-table">
+                <tr>
+                    <th>Number</th>
+                    <th>1st Level</th>
+                    <th>2nd Level</th>
+                    <th>3rd Level</th>
+                    <th>4th Level</th>
+                    <th>5th Level</th>
+                </tr>
+                <tr><td>1</td><td><input type="checkbox" class="wizard-spell-check"> Affect Normal Fires</td><td><input type="checkbox" class="wizard-spell-check"> Audible Glamer</td><td><input type="checkbox" class="wizard-spell-check"> Blink</td><td><input type="checkbox" class="wizard-spell-check"> Charm Monster</td><td><input type="checkbox" class="wizard-spell-check"> Airy Water</td></tr>
+                <tr><td>2</td><td><input type="checkbox" class="wizard-spell-check"> Burning Hands</td><td><input type="checkbox" class="wizard-spell-check"> Continual Light</td><td><input type="checkbox" class="wizard-spell-check"> Clairaudience</td><td><input type="checkbox" class="wizard-spell-check"> Confusion</td><td><input type="checkbox" class="wizard-spell-check"> Animal Growth</td></tr>
+                <tr><td>3</td><td><input type="checkbox" class="wizard-spell-check"> Charm Person</td><td><input type="checkbox" class="wizard-spell-check"> Darkness 15' Radius</td><td><input type="checkbox" class="wizard-spell-check"> Clairvoyance</td><td><input type="checkbox" class="wizard-spell-check"> Dig</td><td><input type="checkbox" class="wizard-spell-check"> Animate Dead</td></tr>
+                <tr><td>4</td><td><input type="checkbox" class="wizard-spell-check"> Comprehend Languages</td><td><input type="checkbox" class="wizard-spell-check"> Detect Evil</td><td><input type="checkbox" class="wizard-spell-check"> Dispel Magic</td><td><input type="checkbox" class="wizard-spell-check"> Dimension Door</td><td><input type="checkbox" class="wizard-spell-check"> Bigby's Interposing Hand</td></tr>
+                <tr><td>5</td><td><input type="checkbox" class="wizard-spell-check"> Dancing Lights</td><td><input type="checkbox" class="wizard-spell-check"> Detect Invisibility</td><td><input type="checkbox" class="wizard-spell-check"> Explosive Runes</td><td><input type="checkbox" class="wizard-spell-check"> Enchanted Weapon</td><td><input type="checkbox" class="wizard-spell-check"> Cloudkill</td></tr>
+                <tr><td>6</td><td><input type="checkbox" class="wizard-spell-check"> Detect Magic</td><td><input type="checkbox" class="wizard-spell-check"> ESP</td><td><input type="checkbox" class="wizard-spell-check"> Feign Death</td><td><input type="checkbox" class="wizard-spell-check"> Extension I</td><td><input type="checkbox" class="wizard-spell-check"> Conjure Elemental</td></tr>
+                <tr><td>7</td><td><input type="checkbox" class="wizard-spell-check"> Enlarge</td><td><input type="checkbox" class="wizard-spell-check"> Fools Gold</td><td><input type="checkbox" class="wizard-spell-check"> Fireball</td><td><input type="checkbox" class="wizard-spell-check"> Fear</td><td><input type="checkbox" class="wizard-spell-check"> Cone Of Cold</td></tr>
+                <tr><td>8</td><td><input type="checkbox" class="wizard-spell-check"> Erase</td><td><input type="checkbox" class="wizard-spell-check"> Forget</td><td><input type="checkbox" class="wizard-spell-check"> Flame Arrow</td><td><input type="checkbox" class="wizard-spell-check"> Fire Charm</td><td><input type="checkbox" class="wizard-spell-check"> Contact Other Plane</td></tr>
+                <tr><td>9</td><td><input type="checkbox" class="wizard-spell-check"> Feather Fall</td><td><input type="checkbox" class="wizard-spell-check"> Invisibility</td><td><input type="checkbox" class="wizard-spell-check"> Fire Shield</td><td><input type="checkbox" class="wizard-spell-check"> Distance Distortion</td></tr>
+                <tr><td>10</td><td><input type="checkbox" class="wizard-spell-check"> Find Familiar</td><td><input type="checkbox" class="wizard-spell-check"> Knock</td><td><input type="checkbox" class="wizard-spell-check"> Gust Of Wind</td><td><input type="checkbox" class="wizard-spell-check"> Fire Trap</td><td><input type="checkbox" class="wizard-spell-check"> Extension II</td></tr>
+                <tr><td>11</td><td><input type="checkbox" class="wizard-spell-check"> Friends</td><td><input type="checkbox" class="wizard-spell-check"> Leomund's Trap</td><td><input type="checkbox" class="wizard-spell-check"> Haste</td><td><input type="checkbox" class="wizard-spell-check"> Fumble</td><td><input type="checkbox" class="wizard-spell-check"> Feeblemind</td></tr>
+                <tr><td>12</td><td><input type="checkbox" class="wizard-spell-check"> Hold Portal</td><td><input type="checkbox" class="wizard-spell-check"> Levitate</td><td><input type="checkbox" class="wizard-spell-check"> Hold Person</td><td><input type="checkbox" class="wizard-spell-check"> Hallucinatory Terrain</td><td><input type="checkbox" class="wizard-spell-check"> Hold Monster</td></tr>
+                <tr><td>13</td><td><input type="checkbox" class="wizard-spell-check"> Identify</td><td><input type="checkbox" class="wizard-spell-check"> Locate Object</td><td><input type="checkbox" class="wizard-spell-check"> Infravision</td><td><input type="checkbox" class="wizard-spell-check"> Ice Storm</td><td><input type="checkbox" class="wizard-spell-check"> Leomund's Secret Chest</td></tr>
+                <tr><td>14</td><td><input type="checkbox" class="wizard-spell-check"> Jump</td><td><input type="checkbox" class="wizard-spell-check"> Magic Mouth</td><td><input type="checkbox" class="wizard-spell-check"> Invisibility 10' Radius</td><td><input type="checkbox" class="wizard-spell-check"> Massmorph</td><td><input type="checkbox" class="wizard-spell-check"> Magic Jar</td></tr>
+                <tr><td>15</td><td><input type="checkbox" class="wizard-spell-check"> Light</td><td><input type="checkbox" class="wizard-spell-check"> Mirror Image</td><td><input type="checkbox" class="wizard-spell-check"> Leomund's Tiny Hut</td><td><input type="checkbox" class="wizard-spell-check"> Minor Globe of Invulnerability</td><td><input type="checkbox" class="wizard-spell-check"> Monster Summoning III</td></tr>
+                <tr><td>16</td><td><input type="checkbox" class="wizard-spell-check"> Magic Missile</td><td><input type="checkbox" class="wizard-spell-check"> Pyrotechnics</td><td><input type="checkbox" class="wizard-spell-check"> Lightning Bolt</td><td><input type="checkbox" class="wizard-spell-check"> Monster Summoning II</td><td><input type="checkbox" class="wizard-spell-check"> Mordenkainen's Faithful Hound</td></tr>
+                <tr><td>17</td><td><input type="checkbox" class="wizard-spell-check"> Mending</td><td><input type="checkbox" class="wizard-spell-check"> Ray Of Enfeeblement</td><td><input type="checkbox" class="wizard-spell-check"> Monster Summoning I</td><td><input type="checkbox" class="wizard-spell-check"> Plant Growth</td><td><input type="checkbox" class="wizard-spell-check"> Passwall</td></tr>
+                <tr><td>18</td><td><input type="checkbox" class="wizard-spell-check"> Message</td><td><input type="checkbox" class="wizard-spell-check"> Rope Trick</td><td><input type="checkbox" class="wizard-spell-check"> Phantasmal Force</td><td><input type="checkbox" class="wizard-spell-check"> Polymorph Other</td><td><input type="checkbox" class="wizard-spell-check"> Stone Shape</td></tr>
+                <tr><td>19</td><td><input type="checkbox" class="wizard-spell-check"> Nystul's Magic Aura</td><td><input type="checkbox" class="wizard-spell-check"> Scare</td><td><input type="checkbox" class="wizard-spell-check"> Protection From Evil 10' Radius</td><td><input type="checkbox" class="wizard-spell-check"> Polymorph Self</td><td><input type="checkbox" class="wizard-spell-check"> Telekinesis</td></tr>
+                <tr><td>20</td><td><input type="checkbox" class="wizard-spell-check"> Protection From Evil</td><td><input type="checkbox" class="wizard-spell-check"> Shatter</td><td><input type="checkbox" class="wizard-spell-check"> Protection From Normal Missiles</td><td><input type="checkbox" class="wizard-spell-check"> Rary's Mnemonic Enhancer</td><td><input type="checkbox" class="wizard-spell-check"> Teleport</td></tr>
+                <tr><td>21</td><td><input type="checkbox" class="wizard-spell-check"> Push</td><td><input type="checkbox" class="wizard-spell-check"> Stinking Cloud</td><td><input type="checkbox" class="wizard-spell-check"> Slow</td><td><input type="checkbox" class="wizard-spell-check"> Remove Curse</td><td><input type="checkbox" class="wizard-spell-check"> Transmute Rock To Mud</td></tr>
+                <tr><td>22</td><td><input type="checkbox" class="wizard-spell-check"> Read Magic</td><td><input type="checkbox" class="wizard-spell-check"> Strength</td><td><input type="checkbox" class="wizard-spell-check"> Suggestion</td><td><input type="checkbox" class="wizard-spell-check"> Wall Of Fire</td><td><input type="checkbox" class="wizard-spell-check"> Wall Of Force</td></tr>
+                <tr><td>23</td><td><input type="checkbox" class="wizard-spell-check"> Shield</td><td><input type="checkbox" class="wizard-spell-check"> Web</td><td><input type="checkbox" class="wizard-spell-check"> Tongues</td><td><input type="checkbox" class="wizard-spell-check"> Wall Of Ice</td><td><input type="checkbox" class="wizard-spell-check"> Wall Of Iron</td></tr>
+                <tr><td>24</td><td><input type="checkbox" class="wizard-spell-check"> Shocking Grasp</td><td><input type="checkbox" class="wizard-spell-check"> Wizard Lock</td><td><input type="checkbox" class="wizard-spell-check"> Water Breathing</td><td><input type="checkbox" class="wizard-spell-check"> Wizard Eye</td><td><input type="checkbox" class="wizard-spell-check"> Wall Of Stone</td></tr>
+                <tr><td>25</td><td><input type="checkbox" class="wizard-spell-check"> Sleep</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>26</td><td><input type="checkbox" class="wizard-spell-check"> Spider Climb</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>27</td><td><input type="checkbox" class="wizard-spell-check"> Tenser's Floating Disc</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>28</td><td><input type="checkbox" class="wizard-spell-check"> Unseen Servant</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>29</td><td><input type="checkbox" class="wizard-spell-check"> Ventriloquism</td><td></td><td></td><td></td><td></td></tr>
+            </table>
+        </div>
+        
+        <div id="illusionist-spells-container" class="spells-container">
+            <h3>Illusionist Spells <input type="checkbox" id="hide-unselected-illusionist"> Hide Unselected</h3>
+            <table class="spells-table">
+                <tr>
+                    <th>Number</th>
+                    <th>1st Level</th>
+                    <th>2nd Level</th>
+                    <th>3rd Level</th>
+                </tr>
+                <tr><td>1</td><td><input type="checkbox" class="illusionist-spell-check"> Audible Glamer</td><td><input type="checkbox" class="illusionist-spell-check"> Blindness</td><td><input type="checkbox" class="illusionist-spell-check"> Continual Darkness</td></tr>
+                <tr><td>2</td><td><input type="checkbox" class="illusionist-spell-check"> Change Self</td><td><input type="checkbox" class="illusionist-spell-check"> Blur</td><td><input type="checkbox" class="illusionist-spell-check"> Continual Light</td></tr>
+                <tr><td>3</td><td><input type="checkbox" class="illusionist-spell-check"> Color Spray</td><td><input type="checkbox" class="illusionist-spell-check"> Deafness</td><td><input type="checkbox" class="illusionist-spell-check"> Dispel Illusion</td></tr>
+                <tr><td>4</td><td><input type="checkbox" class="illusionist-spell-check"> Dancing Lights</td><td><input type="checkbox" class="illusionist-spell-check"> Detect Magic</td><td><input type="checkbox" class="illusionist-spell-check"> Fear</td></tr>
+                <tr><td>5</td><td><input type="checkbox" class="illusionist-spell-check"> Darkness</td><td><input type="checkbox" class="illusionist-spell-check"> Fog Cloud</td><td><input type="checkbox" class="illusionist-spell-check"> Hallucinatory Terrain</td></tr>
+                <tr><td>6</td><td><input type="checkbox" class="illusionist-spell-check"> Detect Illusion</td><td><input type="checkbox" class="illusionist-spell-check"> Hypnotic Pattern</td><td><input type="checkbox" class="illusionist-spell-check"> Illusionary Script</td></tr>
+                <tr><td>7</td><td><input type="checkbox" class="illusionist-spell-check"> Detect Invisibility</td><td><input type="checkbox" class="illusionist-spell-check"> Improved Phantasmal Force</td><td><input type="checkbox" class="illusionist-spell-check"> Invisibility 10' Radius</td></tr>
+                <tr><td>8</td><td><input type="checkbox" class="illusionist-spell-check"> Gaze Reflection</td><td><input type="checkbox" class="illusionist-spell-check"> Invisibility</td><td><input type="checkbox" class="illusionist-spell-check"> Non-detection</td></tr>
+                <tr><td>9</td><td><input type="checkbox" class="illusionist-spell-check"> Hypnotism</td><td><input type="checkbox" class="illusionist-spell-check"> Magic Mouth</td><td><input type="checkbox" class="illusionist-spell-check"> Paralyzation</td></tr>
+                <tr><td>10</td><td><input type="checkbox" class="illusionist-spell-check"> Light</td><td><input type="checkbox" class="illusionist-spell-check"> Mirror Image</td><td><input type="checkbox" class="illusionist-spell-check"> Rope Trick</td></tr>
+                <tr><td>11</td><td><input type="checkbox" class="illusionist-spell-check"> Phantasmal Force</td><td><input type="checkbox" class="illusionist-spell-check"> Misdirection</td><td><input type="checkbox" class="illusionist-spell-check"> Spectral Force</td></tr>
+                <tr><td>12</td><td><input type="checkbox" class="illusionist-spell-check"> Wall Of Fog</td><td><input type="checkbox" class="illusionist-spell-check"> Ventriloquism</td><td><input type="checkbox" class="illusionist-spell-check"> Suggestion</td></tr>
+            </table>
+            <table class="spells-table">
+                <tr>
+                    <th>Number</th>
+                    <th>4th Level</th>
+                    <th>5th Level</th>
+                    <th>6th Level</th>
+                    <th>7th Level</th>
+                </tr>
+                <tr><td>1</td><td><input type="checkbox" class="illusionist-spell-check"> Confusion</td><td><input type="checkbox" class="illusionist-spell-check"> Chaos</td><td><input type="checkbox" class="illusionist-spell-check"> Conjure Animals</td><td><input type="checkbox" class="illusionist-spell-check"> Alter Reality</td></tr>
+                <tr><td>2</td><td><input type="checkbox" class="illusionist-spell-check"> Dispel Exhaustion</td><td><input type="checkbox" class="illusionist-spell-check"> Demi-Shadow Monsters</td><td><input type="checkbox" class="illusionist-spell-check"> Demi-Shadow Magic</td><td><input type="checkbox" class="illusionist-spell-check"> Astral Spell</td></tr>
+                <tr><td>3</td><td><input type="checkbox" class="illusionist-spell-check"> Emotion</td><td><input type="checkbox" class="illusionist-spell-check"> Major Creation</td><td><input type="checkbox" class="illusionist-spell-check"> Mass Suggestion</td><td><input type="checkbox" class="illusionist-spell-check"> Prismatic Spray</td></tr>
+                <tr><td>4</td><td><input type="checkbox" class="illusionist-spell-check"> Improved Invisibility</td><td><input type="checkbox" class="illusionist-spell-check"> Maze</td><td><input type="checkbox" class="illusionist-spell-check"> Permanent Illusion</td><td><input type="checkbox" class="illusionist-spell-check"> Prismatic Wall</td></tr>
+                <tr><td>5</td><td><input type="checkbox" class="illusionist-spell-check"> Massmorph</td><td><input type="checkbox" class="illusionist-spell-check"> Projected Image</td><td><input type="checkbox" class="illusionist-spell-check"> Programmed Illusion</td><td><input type="checkbox" class="illusionist-spell-check"> Vision</td></tr>
+                <tr><td>6</td><td><input type="checkbox" class="illusionist-spell-check"> Minor Creation</td><td><input type="checkbox" class="illusionist-spell-check"> Shadow Door</td><td><input type="checkbox" class="illusionist-spell-check"> Shades</td><td><input type="checkbox" class="illusionist-spell-check"> First Level Magic-User Spells</td></tr>
+                <tr><td>7</td><td><input type="checkbox" class="illusionist-spell-check"> Phantasmal Killer</td><td><input type="checkbox" class="illusionist-spell-check"> Shadow Magic</td><td><input type="checkbox" class="illusionist-spell-check"> True Sight</td><td></td></tr>
+                <tr><td>8</td><td><input type="checkbox" class="illusionist-spell-check"> Shadow Monsters</td><td><input type="checkbox" class="illusionist-spell-check"> Summon Shadow</td><td><input type="checkbox" class="illusionist-spell-check"> Veil</td><td></td></tr>
+            </table>
+        </div>
     </div>
 
     <script src="equipment.js"></script>

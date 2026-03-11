@@ -242,9 +242,59 @@ function initEquipment() {
             });
         });
     });
+    
+    document.querySelectorAll('.item-checkbox, .item-qty').forEach(el => {
+        el.addEventListener('change', calculateTotals);
+        el.addEventListener('input', calculateTotals);
+    });
+}
+
+function parseCost(costStr) {
+    const match = costStr.match(/([\d,]+)\s*(c\.p\.|s\.p\.|g\.p\.)/i);
+    if (!match) return 0;
+    
+    const value = parseFloat(match[1].replace(/,/g, ''));
+    const unit = match[2].toLowerCase();
+    
+    if (unit === 'g.p.') return value;
+    if (unit === 's.p.') return value / 10;
+    if (unit === 'c.p.') return value / 100;
+    return 0;
+}
+
+function calculateTotals() {
+    let totalCost = 0;
+    let totalWeight = 0;
+    
+    document.querySelectorAll('.item-checkbox').forEach(checkbox => {
+        if (checkbox.checked) {
+            const row = checkbox.parentElement;
+            const qtyInput = row.querySelector('.item-qty');
+            const costSpan = row.querySelector('.item-cost');
+            
+            const qty = parseInt(qtyInput.value) || 1;
+            const unitCost = parseCost(costSpan.textContent);
+            
+            totalCost += unitCost * qty;
+            totalWeight += unitCost * qty;
+        }
+    });
+    
+    const additionalWeight = parseFloat(document.getElementById('additional-weight')?.value) || 0;
+    totalWeight += additionalWeight;
+    
+    document.getElementById('total-cost').value = totalCost.toFixed(2) + ' g.p.';
+    document.getElementById('total-weight').value = totalWeight.toFixed(2) + ' g.p.';
 }
 
 document.addEventListener('DOMContentLoaded', initEquipment);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const additionalWeight = document.getElementById('additional-weight');
+    if (additionalWeight) {
+        additionalWeight.addEventListener('input', calculateTotals);
+    }
+});
 
 document.getElementById('toggle-equipment-sections').addEventListener('click', () => {
     const toggles = document.querySelectorAll('.section-toggle');

@@ -918,6 +918,39 @@ function checkClassRequirements() {
         }
     });
     
+    // Show/hide spell containers based on class
+    const clericContainer = document.getElementById('cleric-spells-container');
+    const druidContainer = document.getElementById('druid-spells-container');
+    const wizardContainer = document.getElementById('wizard-spells-container');
+    const illusionistContainer = document.getElementById('illusionist-spells-container');
+    
+    if (selectedClass === 'cleric') {
+        if (clericContainer) clericContainer.style.display = 'block';
+        if (druidContainer) druidContainer.style.display = 'none';
+        if (wizardContainer) wizardContainer.style.display = 'none';
+        if (illusionistContainer) illusionistContainer.style.display = 'none';
+    } else if (selectedClass === 'druid') {
+        if (clericContainer) clericContainer.style.display = 'none';
+        if (druidContainer) druidContainer.style.display = 'block';
+        if (wizardContainer) wizardContainer.style.display = 'none';
+        if (illusionistContainer) illusionistContainer.style.display = 'none';
+    } else if (selectedClass === 'magic-user') {
+        if (clericContainer) clericContainer.style.display = 'none';
+        if (druidContainer) druidContainer.style.display = 'none';
+        if (wizardContainer) wizardContainer.style.display = 'block';
+        if (illusionistContainer) illusionistContainer.style.display = 'none';
+    } else if (selectedClass === 'illusionist') {
+        if (clericContainer) clericContainer.style.display = 'none';
+        if (druidContainer) druidContainer.style.display = 'none';
+        if (wizardContainer) wizardContainer.style.display = 'none';
+        if (illusionistContainer) illusionistContainer.style.display = 'block';
+    } else {
+        if (clericContainer) clericContainer.style.display = 'none';
+        if (druidContainer) druidContainer.style.display = 'none';
+        if (wizardContainer) wizardContainer.style.display = 'none';
+        if (illusionistContainer) illusionistContainer.style.display = 'none';
+    }
+    
     validateRaceClassCombo();
     updateSavingThrows();
 }
@@ -986,7 +1019,11 @@ function saveCharacter() {
         weaponHits: Array.from(document.querySelectorAll('.combat-hit')).map(inp => inp.value),
         weaponDmgs: Array.from(document.querySelectorAll('.combat-dmg')).map(inp => inp.value),
         armorSelects: Array.from(document.querySelectorAll('.combat-armor')).map(sel => sel.value),
-        equipmentCheckboxes: Array.from(document.querySelectorAll('.item-checkbox')).map(cb => cb.checked)
+        equipmentCheckboxes: Array.from(document.querySelectorAll('.item-checkbox')).map(cb => cb.checked),
+        clericSpellCheckboxes: Array.from(document.querySelectorAll('.cleric-spell-check')).map(cb => cb.checked),
+        druidSpellCheckboxes: Array.from(document.querySelectorAll('.druid-spell-check')).map(cb => cb.checked),
+        wizardSpellCheckboxes: Array.from(document.querySelectorAll('.wizard-spell-check')).map(cb => cb.checked),
+        illusionistSpellCheckboxes: Array.from(document.querySelectorAll('.illusionist-spell-check')).map(cb => cb.checked)
     };
     const json = JSON.stringify(data, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
@@ -1065,6 +1102,26 @@ function loadCharacter(event) {
                 cb.checked = data.equipmentCheckboxes[i] || false;
             });
         }
+        if (data.clericSpellCheckboxes) {
+            Array.from(document.querySelectorAll('.cleric-spell-check')).forEach((cb, i) => {
+                cb.checked = data.clericSpellCheckboxes[i] || false;
+            });
+        }
+        if (data.druidSpellCheckboxes) {
+            Array.from(document.querySelectorAll('.druid-spell-check')).forEach((cb, i) => {
+                cb.checked = data.druidSpellCheckboxes[i] || false;
+            });
+        }
+        if (data.wizardSpellCheckboxes) {
+            Array.from(document.querySelectorAll('.wizard-spell-check')).forEach((cb, i) => {
+                cb.checked = data.wizardSpellCheckboxes[i] || false;
+            });
+        }
+        if (data.illusionistSpellCheckboxes) {
+            Array.from(document.querySelectorAll('.illusionist-spell-check')).forEach((cb, i) => {
+                cb.checked = data.illusionistSpellCheckboxes[i] || false;
+            });
+        }
         applyRacialAdjustments();
         checkClassRequirements();
         updateSavingThrows();
@@ -1072,6 +1129,9 @@ function loadCharacter(event) {
         setTimeout(() => {
             if (typeof calculateTotalAC === 'function') {
                 calculateTotalAC();
+            }
+            if (typeof calculateTotals === 'function') {
+                calculateTotals();
             }
         }, 200);
     };
@@ -1127,6 +1187,61 @@ document.getElementById('toggle-combat-checks').addEventListener('click', () => 
     checkboxes.forEach(cb => cb.checked = !allChecked);
 });
 
+document.getElementById('hide-unselected-cleric')?.addEventListener('change', (e) => {
+    const rows = document.querySelectorAll('#cleric-spells-container tr');
+    rows.forEach(row => {
+        if (row.querySelector('th')) return;
+        const checkboxes = row.querySelectorAll('.cleric-spell-check');
+        const hasChecked = Array.from(checkboxes).some(cb => cb.checked);
+        if (e.target.checked && !hasChecked) {
+            row.style.display = 'none';
+        } else {
+            row.style.display = '';
+        }
+    });
+});
+
+document.getElementById('hide-unselected-druid')?.addEventListener('change', (e) => {
+    const rows = document.querySelectorAll('#druid-spells-container tr');
+    rows.forEach(row => {
+        if (row.querySelector('th')) return;
+        const checkboxes = row.querySelectorAll('.druid-spell-check');
+        const hasChecked = Array.from(checkboxes).some(cb => cb.checked);
+        if (e.target.checked && !hasChecked) {
+            row.style.display = 'none';
+        } else {
+            row.style.display = '';
+        }
+    });
+});
+
+document.getElementById('hide-unselected-wizard')?.addEventListener('change', (e) => {
+    const rows = document.querySelectorAll('#wizard-spells-container tr');
+    rows.forEach(row => {
+        if (row.querySelector('th')) return;
+        const checkboxes = row.querySelectorAll('.wizard-spell-check');
+        const hasChecked = Array.from(checkboxes).some(cb => cb.checked);
+        if (e.target.checked && !hasChecked) {
+            row.style.display = 'none';
+        } else {
+            row.style.display = '';
+        }
+    });
+});
+
+document.getElementById('hide-unselected-illusionist')?.addEventListener('change', (e) => {
+    const rows = document.querySelectorAll('#illusionist-spells-container tr');
+    rows.forEach(row => {
+        if (row.querySelector('th')) return;
+        const checkboxes = row.querySelectorAll('.illusionist-spell-check');
+        const hasChecked = Array.from(checkboxes).some(cb => cb.checked);
+        if (e.target.checked && !hasChecked) {
+            row.style.display = 'none';
+        } else {
+            row.style.display = '';
+        }
+    });
+});
 
 // Bard level progression - appended separately due to size
 classLevelProgression.bard = [
