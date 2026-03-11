@@ -971,11 +971,7 @@ function saveCharacter() {
         saveRodMod: document.getElementById('save-rod-mod').value,
         saveBreathMod: document.getElementById('save-breath-mod').value,
         saveSpellMod: document.getElementById('save-spell-mod').value,
-        saveParalExplain: document.getElementById('save-paral-explain').value,
-        savePetriExplain: document.getElementById('save-petri-explain').value,
-        saveRodExplain: document.getElementById('save-rod-explain').value,
-        saveBreathExplain: document.getElementById('save-breath-explain').value,
-        saveSpellExplain: document.getElementById('save-spell-explain').value,
+        throwExplanation: document.getElementById('throw-explanation')?.value || '',
         goldAmount: document.getElementById('gold-amount').value,
         acVal: document.getElementById('ac-val').value,
         adjacVal: document.getElementById('adjac-val').value,
@@ -1027,11 +1023,8 @@ function loadCharacter(event) {
         document.getElementById('save-rod-mod').value = data.saveRodMod || '0';
         document.getElementById('save-breath-mod').value = data.saveBreathMod || '0';
         document.getElementById('save-spell-mod').value = data.saveSpellMod || '0';
-        document.getElementById('save-paral-explain').value = data.saveParalExplain || '';
-        document.getElementById('save-petri-explain').value = data.savePetriExplain || '';
-        document.getElementById('save-rod-explain').value = data.saveRodExplain || '';
-        document.getElementById('save-breath-explain').value = data.saveBreathExplain || '';
-        document.getElementById('save-spell-explain').value = data.saveSpellExplain || '';
+        const throwExplain = document.getElementById('throw-explanation');
+        if (throwExplain) throwExplain.value = data.throwExplanation || '';
         document.getElementById('gold-amount').value = data.goldAmount || '';
         document.getElementById('ac-val').value = data.acVal || '';
         document.getElementById('adjac-val').value = data.adjacVal || '';
@@ -1049,6 +1042,7 @@ function loadCharacter(event) {
         if (data.weaponSelects) {
             Array.from(document.querySelectorAll('.combat-weapon')).forEach((sel, i) => {
                 sel.value = data.weaponSelects[i] || '';
+                sel.dispatchEvent(new Event('change'));
             });
         }
         if (data.weaponHits) {
@@ -1074,6 +1068,12 @@ function loadCharacter(event) {
         applyRacialAdjustments();
         checkClassRequirements();
         updateSavingThrows();
+        
+        setTimeout(() => {
+            if (typeof calculateTotalAC === 'function') {
+                calculateTotalAC();
+            }
+        }, 200);
     };
     reader.readAsText(file);
 }

@@ -61,7 +61,19 @@ function initCombatEquipment() {
     const weaponSelects = document.querySelectorAll('.combat-weapon');
     const rangedSelects = Array.from(document.querySelectorAll('.combat-weapon')).filter((_, i) => i >= 3 && i < 6);
     const armorSelects = document.querySelectorAll('.combat-armor');
-    const armorList = ['Banded', 'Chain', 'Leather', 'Padded', 'Plate', 'Ring', 'Scale', 'Shield, large', 'Shield, small', 'Splinted', 'Studded'];
+    const armorList = [
+        { name: 'Banded', ac: 4 },
+        { name: 'Chain', ac: 5 },
+        { name: 'Leather', ac: 8 },
+        { name: 'Padded', ac: 8 },
+        { name: 'Plate', ac: 3 },
+        { name: 'Ring', ac: 7 },
+        { name: 'Scale', ac: 6 },
+        { name: 'Shield, large', ac: -1 },
+        { name: 'Shield, small', ac: -1 },
+        { name: 'Splinted', ac: 4 },
+        { name: 'Studded', ac: 7 }
+    ];
     
     weaponSelects.forEach((select, idx) => {
         const isRanged = rangedSelects.includes(select);
@@ -76,26 +88,41 @@ function initCombatEquipment() {
         
         select.addEventListener('change', (e) => {
             const weapon = combatWeapons[e.target.value];
-            if (weapon) {
+            if (!weapon) {
                 const row = e.target.closest('tr');
-                row.querySelector('.combat-dmg-sm').value = weapon.dmgSM;
-                row.querySelector('.combat-dmg-l').value = weapon.dmgL;
-                row.querySelector('.combat-wt').value = weapon.weight;
-                
-                const strHit = parseInt(document.getElementById('str-hit').textContent) || 0;
-                const strDmg = parseInt(document.getElementById('str-dmg').textContent) || 0;
-                const dexMissile = parseInt(document.getElementById('dex-missile').textContent) || 0;
-                
-                const hitInput = row.querySelector('.combat-hit');
-                const dmgInput = row.querySelector('.combat-dmg');
-                
-                if (isRanged) {
-                    hitInput.value = dexMissile || '';
-                    dmgInput.value = '';
-                } else {
-                    hitInput.value = strHit || '';
-                    dmgInput.value = strDmg || '';
-                }
+                row.querySelector('.combat-dmg-sm').value = '';
+                row.querySelector('.combat-dmg-l').value = '';
+                row.querySelector('.combat-wt').value = '';
+                row.querySelector('.combat-hit').value = '';
+                row.querySelector('.combat-dmg').value = '';
+                return;
+            }
+            
+            const row = e.target.closest('tr');
+            const dmgSmInput = row.querySelector('.combat-dmg-sm');
+            const dmgLInput = row.querySelector('.combat-dmg-l');
+            const wtInput = row.querySelector('.combat-wt');
+            const hitInput = row.querySelector('.combat-hit');
+            const dmgInput = row.querySelector('.combat-dmg');
+            
+            dmgSmInput.value = weapon.dmgSM;
+            dmgLInput.value = weapon.dmgL;
+            wtInput.value = weapon.weight;
+            
+            const strHitText = document.getElementById('str-hit')?.textContent || '0';
+            const strDmgText = document.getElementById('str-dmg')?.textContent || '0';
+            const dexMissileText = document.getElementById('dex-missile')?.textContent || '0';
+            
+            const strHit = parseInt(strHitText) || 0;
+            const strDmg = parseInt(strDmgText) || 0;
+            const dexMissile = parseInt(dexMissileText) || 0;
+            
+            if (isRanged) {
+                hitInput.value = dexMissile !== 0 ? (dexMissile > 0 ? '+' + dexMissile : dexMissile) : '0';
+                dmgInput.value = '0';
+            } else {
+                hitInput.value = strHit !== 0 ? (strHit > 0 ? '+' + strHit : strHit) : '0';
+                dmgInput.value = strDmg !== 0 ? (strDmg > 0 ? '+' + strDmg : strDmg) : '0';
             }
         });
     });
@@ -103,13 +130,60 @@ function initCombatEquipment() {
     armorSelects.forEach(select => {
         armorList.forEach(armor => {
             const option = document.createElement('option');
-            option.value = armor;
-            option.textContent = armor;
+            option.value = armor.name;
+            option.textContent = `${armor.name} (AC ${armor.ac})`;
+            option.dataset.ac = armor.ac;
             select.appendChild(option);
         });
+        
+        select.addEventListener('change', calculateTotalAC);
     });
+}
+
+function calculateTotalAC() {
+    const armorSelects = document.querySelectorAll('.combat-armor');
+    const checkedArmor = [];
+    
+    armorSelects.forEach(select => {
+        const row = select.closest('tr');
+        const checkbox = row?.querySelector('.combat-check');
+        if (checkbox?.checked && select.value) {
+            const selectedOption = select.options[select.selectedIndex];
+            const ac = parseInt(selectedOption.dataset.ac);
+            if (!isNaN(ac)) {
+                checkedArmor.push(ac);
+            }
+        }
+    });
+    
+    if (checkedArmor.length === 0) {
+        document.getElementById('ac-val').value = '10';
+        return;
+    }
+    
+    let baseAC = 10;
+    let shieldBonus = 0;
+    
+    checkedArmor.forEach(ac => {
+        if (ac === -1) {
+            shieldBonus = -1;
+        } else if (ac < baseAC) {
+            baseAC = ac;
+        }
+    });
+    
+    const totalAC = baseAC + shieldBonus;
+    document.getElementById('ac-val').value = totalAC;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     initCombatEquipment();
+    
+    const armorRows = Array.from(document.querySelectorAll('.combat-armor')).map(s => s.closest('tr'));
+    armorRows.forEach(row => {
+        const checkbox = row.querySelector('.combat-check');
+        if (checkbox) {
+            checkbox.addEventListener('change', calculateTotalAC);
+        }
+    });
 });
