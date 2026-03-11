@@ -1181,10 +1181,54 @@ document.getElementById('class').addEventListener('change', () => {
 
 document.getElementById('roll-gold').disabled = true;
 
+function rollDice(numDice, numSides) {
+    let total = 0;
+    for (let i = 0; i < numDice; i++) {
+        total += Math.floor(Math.random() * numSides) + 1;
+    }
+    return total;
+}
+
+function roll3d6() {
+    const stats = ['str', 'int', 'wis', 'dex', 'con', 'chr'];
+    stats.forEach(stat => {
+        const value = rollDice(3, 6);
+        document.getElementById(stat).value = value;
+    });
+    applyRacialAdjustments();
+}
+
+function roll3of4d6() {
+    const stats = ['str', 'int', 'wis', 'dex', 'con', 'chr'];
+    stats.forEach(stat => {
+        const rolls = [rollDice(1, 6), rollDice(1, 6), rollDice(1, 6), rollDice(1, 6)];
+        rolls.sort((a, b) => b - a);
+        const value = rolls[0] + rolls[1] + rolls[2];
+        document.getElementById(stat).value = value;
+    });
+    applyRacialAdjustments();
+}
+
+document.getElementById('roll_3d6').addEventListener('click', roll3d6);
+document.getElementById('roll_3of4d6').addEventListener('click', roll3of4d6);
+
 document.getElementById('toggle-combat-checks').addEventListener('click', () => {
-    const checkboxes = document.querySelectorAll('.combat-check');
-    const allChecked = Array.from(checkboxes).every(cb => cb.checked);
-    checkboxes.forEach(cb => cb.checked = !allChecked);
+    const rows = document.querySelectorAll('.combat-equipment tr');
+    let anyHidden = false;
+    
+    rows.forEach(row => {
+        const checkbox = row.querySelector('.combat-check');
+        if (checkbox && !checkbox.checked && row.style.display === 'none') {
+            anyHidden = true;
+        }
+    });
+    
+    rows.forEach(row => {
+        const checkbox = row.querySelector('.combat-check');
+        if (checkbox && !checkbox.checked) {
+            row.style.display = anyHidden ? '' : 'none';
+        }
+    });
 });
 
 document.getElementById('hide-unselected-cleric')?.addEventListener('change', (e) => {

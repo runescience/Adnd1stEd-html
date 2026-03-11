@@ -61,10 +61,10 @@
                     <th>final stat</th>
                     <th>racial</th>
                     <th>base stat</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th colspan="2">
+                        <button id="roll_3d6">Roll 3d6</th>
+                    <th colspan="2">
+                        <button id="roll_3of4d6">Best 3 of 4d6</th>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -269,27 +269,29 @@
                 </tr>
                 
             </table>
-        </div>
-    </div>
-        <div class="equipment-owned">
-            <div>
-                    <label>Gold:<input type="text" id="gold-amount"> <button id="roll-gold">Roll</button> </label>
-                     &nbsp;  &nbsp;
-            
-                <label>Total Cost: <input type="text" id="total-cost" readonly></label>
-                <label>Total Weight: <input type="text" id="total-weight" readonly></label>
-            </div>
-            <div>
+                <label>Gold:<input type="text" id="gold-amount"> <button id="roll-gold">Roll</button> </label><br>
+                <label>Total Cost: <input type="text" id="total-cost" readonly></label><br>
+                <label>Total Weight: <input type="text" id="total-weight" readonly></label><br>
                 <label>Additional Weight: <input type="text" id="additional-weight"></label>
             </div>
+            
+        </div>
+
+
+    </div>
+        <div class="equipment-owned">
+            
             <div>
                 <label>Additional Equipment:</label>
                 <textarea id="additional-equipment" rows="3"></textarea>
             </div>
+            
+                    
+            <button id="toggle-combat-checks">Toggle Unselected Weapons</button>
             <table class="combat-equipment">
                 <tr>
                     <th></th>
-                    <th>Weapon</th>
+                    <th>Weapon </th>
                     <th>Hit +</th>
                     <th>Dmg +</th>
                     <th>Dmg S/M</th>
@@ -359,9 +361,7 @@
                     <td><input type="text" class="combat-dmg-l" readonly style="width: 50px;"></td>
                     <td><input type="text" class="combat-wt" readonly style="width: 50px;"></td>
                 </tr>
-                <tr>
-                    <th colspan="7"><button id="toggle-combat-checks">Toggle All Checkmarks</button></th>
-                </tr>
+                
                 <tr>
                     <th></th>
                     <th>Armor</th>

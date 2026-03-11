@@ -1,3 +1,54 @@
+const classWeaponRestrictions = {
+    cleric: ['club', 'flail', 'hammer', 'mace', 'staff', 'sling'],
+    druid: ['club', 'dagger', 'dart', 'hammer', 'sling', 'scimitar', 'spear', 'staff'],
+    fighter: [],
+    paladin: [],
+    ranger: [],
+    'magic-user': ['dagger', 'dart', 'sling', 'staff'],
+    illusionist: ['dagger', 'dart', 'sling', 'staff'],
+    thief: ['bow (short)', 'crossbow (light)', 'dagger', 'dart', 'sling', 'sword (broad)', 'sword (long)', 'sword (short)'],
+    assassin: [],
+    bard: ['club', 'dagger', 'dart', 'javelin', 'scimitar', 'sling', 'spear', 'staff', 'sword (bastard)', 'sword (broad)', 'sword (long)', 'sword (short)']
+};
+
+const classArmorRestrictions = {
+    cleric: ['any'],
+    druid: ['leather', 'wooden shields only'],
+    fighter: ['any'],
+    paladin: ['any'],
+    ranger: ['any'],
+    'magic-user': ['none'],
+    illusionist: ['none'],
+    thief: ['leather', 'elfin chain'],
+    assassin: ['leather', 'elfin chain'],
+    bard: ['leather', 'ring mail', 'elfin chain', 'magic chain mail']
+};
+
+function normalizeWeaponName(weaponName) {
+    return weaponName.toLowerCase().trim();
+}
+
+function isWeaponAllowed(weaponName, className) {
+    if (!className || !classWeaponRestrictions[className]) return true;
+    
+    const restrictions = classWeaponRestrictions[className];
+    if (restrictions.length === 0) return true;
+    
+    const normalized = normalizeWeaponName(weaponName);
+    return restrictions.some(allowed => normalized.includes(normalizeWeaponName(allowed)));
+}
+
+function isArmorAllowed(armorName, className) {
+    if (!className || !classArmorRestrictions[className]) return true;
+    
+    const restrictions = classArmorRestrictions[className];
+    if (restrictions.includes('any')) return true;
+    if (restrictions.includes('none')) return false;
+    
+    const normalized = normalizeWeaponName(armorName);
+    return restrictions.some(allowed => normalized.includes(normalizeWeaponName(allowed)));
+}
+
 const combatWeapons = {
     'Arrow': { weight: 2, dmgSM: '1-6', dmgL: '1-6', ranged: true },
     'Axe, Battle': { weight: 75, dmgSM: '1-8', dmgL: '1-4' },
@@ -87,6 +138,15 @@ function initCombatEquipment() {
         });
         
         select.addEventListener('change', (e) => {
+            const selectedClass = document.getElementById('class')?.value || '';
+            const weaponName = e.target.value;
+            const isAllowed = isWeaponAllowed(weaponName, selectedClass);
+            
+            if (weaponName && !isAllowed) {
+                e.target.style.backgroundColor = 'red';
+            } else {
+                e.target.style.backgroundColor = '';
+            }
             const weapon = combatWeapons[e.target.value];
             if (!weapon) {
                 const row = e.target.closest('tr');
@@ -136,7 +196,45 @@ function initCombatEquipment() {
             select.appendChild(option);
         });
         
-        select.addEventListener('change', calculateTotalAC);
+        select.addEventListener('change', (e) => {
+            const selectedClass = document.getElementById('class')?.value || '';
+            const armorName = e.target.value;
+            const isAllowed = isArmorAllowed(armorName, selectedClass);
+            
+            if (armorName && !isAllowed) {
+                e.target.style.backgroundColor = 'red';
+            } else {
+                e.target.style.backgroundColor = '';
+            }
+            
+            calculateTotalAC();
+        });
+    });
+}
+
+function validateAllWeaponsAndArmor() {
+    const selectedClass = document.getElementById('class')?.value || '';
+    
+    document.querySelectorAll('.combat-weapon').forEach(select => {
+        const weaponName = select.value;
+        const isAllowed = isWeaponAllowed(weaponName, selectedClass);
+        
+        if (weaponName && !isAllowed) {
+            select.style.backgroundColor = 'red';
+        } else {
+            select.style.backgroundColor = '';
+        }
+    });
+    
+    document.querySelectorAll('.combat-armor').forEach(select => {
+        const armorName = select.value;
+        const isAllowed = isArmorAllowed(armorName, selectedClass);
+        
+        if (armorName && !isAllowed) {
+            select.style.backgroundColor = 'red';
+        } else {
+            select.style.backgroundColor = '';
+        }
     });
 }
 
@@ -186,4 +284,6 @@ document.addEventListener('DOMContentLoaded', () => {
             checkbox.addEventListener('change', calculateTotalAC);
         }
     });
+    
+    document.getElementById('class')?.addEventListener('change', validateAllWeaponsAndArmor);
 });
